@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+
+/* #Page Styles 42
+================================================== */
+#lookbook{
+  width: 807px;
+  height: 400px;
+  background-image: url(../images/sprite-lookbook.png);
+}
+/*transform: scale(0.5);*/
+/*
+.itemsprite{
+  float: left;
+  
+}
+#b{
+  width: 429px;
+  height: 378px;
+  background-image: url(../images/sprite-b.png);
+
+}
+#c{
+  width: 429px;
+  height: 378px;
+  background-image: url(../images/sprite-c.png);
+}
+#l{
+  width: 429px;
+  height: 378px;
+  background-image: url(../images/sprite-l.png);
+}
+#m{
+  width: 429px;
+  height: 378px;
+  background-image: url(../images/sprite-m.png);
+}
+#r{
+  width: 429px;
+  height: 378px;
+  background-image: url(../images/sprite-r.png);
+}
+#v{
+  width: 429px;
+  height: 378px;
+  background-image: url(../images/sprite-v.png);
+}
+*/
+/* #Page Styles
+================================================== */
+body{
+  background: #ededed;
+}
+.wrapper {
+  width: 100%;
+}
+.container{
+  width: 960px;
+  margin: 0 auto;
+  background: #fff;
+}
+span{
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+pre{
+  padding: 20px;
+  background: #aaa;
+}
+/* #Media Queries
+================================================== */
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .container{width: 768px;}
+
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .container{ width: 480px; }
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  .container{ width: 300px; }
+
+}

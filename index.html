@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- Basic Page Needs
+================================================== -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>jquery.spriteMe</title>
+	<meta name="description" content="MyBase v1.2">
+<!-- Mobile Specific Metas
+================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2.5">
+<!-- CSS
+================================================== -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/style.css">
+<!-- Favicons
+http://realfavicongenerator.net/
+================================================== -->
+
+<!-- Facebook
+================================================== -->
+	<meta property="og:title" content="SHARE_TITLE" /> 
+	<meta property="og:type" content="CONTENT_TYPE" />
+	<meta property="og:url" content="SHARE_URL" />
+	<meta property="og:description" content="SHARE_DESCRIPTION" />
+	<meta property="og:site_name" content="NOM_DU_SITE" /> 
+	<meta property="fb:page_id" content="ID_PAGE_FACEBOOK" /> 
+	<meta property="og:image" content="SHARE_IMG" /> 
+	<meta property="fb:admins" content="ID_FACEBOOK_DU_WEBMASTER" /> 
+<!-- Google Analytics
+================================================== -->
+
+</head>
+<body>
+
+	<div class="container">
+		<h1>jquery.spriteMe</h1>
+		<p>
+			<ul>
+				<li><b>maxframe + loop + reverse : la loop revient sur le max frame jusque la frame 0. C est pour pouvoir jouer à l'envers une animation quand on a maxframe défini.</b></li>
+			</ul>
+		</p>
+
+		<div>
+			<h3>Utilisation</h3>
+			<p>Définir une div avec width et height plus un background-image. la div affichera donc la 1er frame du sprite (cela peut etre modifié lors de l'initialisation du plugin).<br>
+			Le fichier image peut avoir une ou plusieurs colonnes, peut importe. le sprite sera affiché de gauche à droite, ligne par linge.
+			</p>
+			<pre>
+#lookbook{
+  width: 807px;
+  height: 400px;
+  background-image: url(../images/sprite-lookbook.png);
+}			</pre>
+
+			<h4>initialisation basic et avec parametres</h4>
+<pre>$("#lookbook").spriteMe();
+
+// avec params
+$("#lookbook").spriteMe({
+	fps:30,
+	loop:true,
+	autoplay:false,
+	reverse:true,
+	maxframe: 52,
+	gotoframe:32,
+	complete: function(){  
+		console.log('This is the end.');
+	}
+});
+</pre>
+
+			<h4>Parametre par default</h4>
+<pre>
+&bull;fps: 12, // nombre d'image par seconde
+&bull;loop: false, // tourne en boucle : BOOLEAN
+&bull;autoplay: true, // BOOLEAN
+&bull;gotoframe:false, // BOOLEAN OU INT
+&bull;reverse:false, // joue le sprite à l'envers :BOOLEAN
+&bull;maxframe: false, // si on a un sprite qui a 10 frames mais que notre animation en a que 9. BOOLEAN ou INT
+&bull;complete: function () {}, // execute un bloc de code quand l'animation arrive à la fin <b><u>ET QUE LOOP = FALSE</u></b>. 
+</pre>
+			<h4>Méthode / API</h4>
+			<p>Les méthodes peuvent étre appellées pendant la lecture de l'animation, ou non.</p>
+<pre>
+	// les deux methodes sont identiques, play est un racourci pour resume
+	$("#lookbook").spriteMe("play");
+	$("#lookbook").spriteMe("resume");
+	
+	// stop l'animation
+	$("#lookbook").spriteMe("stop");
+	
+	//relance l'animation
+	$("#lookbook").spriteMe("restart");
+	
+	//change les fps : INT
+	$("#lookbook").spriteMe("fps",30);
+	
+	//saute vers la frame : INT
+	$("#lookbook").spriteMe("gotoframe",30);
+
+	// inverse le sens de lecture du sprite
+	$("#lookbook").spriteMe("reverse");
+
+	// change le nombre de frame de l'animation INT
+	$("#lookbook").spriteMe("setmaxframe",42);
+
+	// supprime la limitation de frame: BOOLEAN
+	$("#lookbook").spriteMe("setmaxframe",false);
+	
+	// change l'etat de la répétition automatique
+	$("#lookbook").spriteMe("setloop",false);
+
+</pre>
+		</div>
+
+
+		<div>
+			<hr>
+			<span class="gt0">gotoframe 0</span>	
+			<span class="gt30">gotoframe 30</span>	
+			<span class="play">play</span>	
+			<span class="stop">stop</span>			
+			<span class="resume">resume</span>			
+			<span class="restart">restart</span>
+			<span class="reverse">reverse</span>
+			<span class="fps6">6 fps</span>		
+			<span class="fps30">30 fps</span>		
+			<span class="maxframe42">maxframe 42</span>		
+			<span class="nomaxframe">remove maxframe</span>		
+			<span class="looptrue">loopTrue</span>		
+			<span class="loopfalse">loopFalse</span>
+			<hr>		
+		</div>
+
+
+		<div id="lookbook" class="mt20"></div>
+
+<!--
+		<div id="b" class="itemsprite"></div>
+		<div id="c" class="itemsprite"></div>
+		<div id="l" class="itemsprite"></div>
+		<div id="m" class="itemsprite"></div>
+		<div id="r" class="itemsprite"></div>
+		<div id="v" class="itemsprite"></div>
+
+		<div class="clear"></div>
+-->
+	</div>
+
+
+<!-- JS
+================================================== -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/libs/jquery.spriteme.js" type="text/javascript"></script>
+
+	<script src="js/main.js" type="text/javascript"></script>
+</body>
+</html>
